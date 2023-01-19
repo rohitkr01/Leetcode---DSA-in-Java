@@ -9,6 +9,7 @@
  * }
  */
 class Solution {
+    /*
     // iterative method
     public ListNode reverseList(ListNode head) {
         if(head == null)  return null;
@@ -23,5 +24,19 @@ class Solution {
             curr = next;
         }
         return prev;
+    }
+    */
+    
+    // Recursive Method
+    public ListNode reverseList(ListNode head){
+        
+        if(head == null || head.next == null)  return head;
+        
+        // reverse the rest list and put the first element at the end .
+        ListNode rest = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        
+        return rest;
     }
 }
